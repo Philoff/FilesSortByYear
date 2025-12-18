@@ -1,16 +1,16 @@
 # FilesByYear
 
 A powerful Python utility that intelligently organizes and classifies files into year-based subdirectories. Perfect for managing large file collections, archives, and document libraries by automatically detecting dates and organizing files accordingly.
-
+Analyze the directory to choose to organize par Year ou Month en Day. 
 ## Overview
 
 FilesByYear is a file classification system that:
 
-- **Detects date patterns** in filenames (e.g., `20240315_report.pdf` → 2024)
-- **Extracts year information** from file metadata (creation date, modification date)
+- **Detects date patterns** in filenames (e.g., `20240315_report.pdf` → YYYYMMDD)
+- **Extracts date information** from file metadata (creation date, modification date) with --source ctime or --source mtime
 - **Organizes files** into year-based folder structures automatically
 - **Provides safe operations** with preview mode and automatic rollback capability
-- **Supports multiple modes**: copy or move files
+- **Supports 2 modes**: with options --mode copy or --mode move
 - **Generates detailed logs** for tracking and auditing
 
 ## Use Cases
@@ -25,22 +25,22 @@ filesbyyear preview ~/Documents/incoming/ --source filename
 # Execute the organization
 filesbyyear classify ~/Documents/incoming/ --mode move
 ```
-### Case 2: Archive Old Files by Year
+### Case 2: Archive Old Files by Year / Month / Day
 ```bash
-# Copy old files to archive organized by year
-filesbyyear classify ~/archive_source/ --mode copy
+# Copy old files to archive organized by sub directory 
+filesbyyear classify ~/archive_source/ --mode move 
 
 # This creates: archive_source/2024/, archive_source/2023/, etc.
 # Original files remain in archive_source/
 ```
 ### Case 3: Use File Metadata When Names Lack Dates
 ```bash
-# When filenames don't contain dates, use modification time
+# When filenames don't contain dates, force the use of the modification time
 filesbyyear preview ~/photos/ --source mtime
 # Or creation time
 filesbyyear classify ~/photos/ --source ctime --yes
 ```
-### Case 4: Automated Batch Processing
+### Case 4: create Automated Batch Processing for all the sub directory
 ```bash
 #!/bin/bash
 # Process multiple directories automatically

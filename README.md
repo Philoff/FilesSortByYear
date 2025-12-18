@@ -1,4 +1,4 @@
-# FilesByYear
+# FilesSortByYear
 
 A powerful Python utility that intelligently organizes and classifies files into year-based subdirectories. Perfect for managing large file collections, archives, and document libraries by automatically detecting dates and organizing files accordingly.
 Analyze the directory to choose to organize par Year ou Month en Day. 
